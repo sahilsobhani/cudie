@@ -1,0 +1,9 @@
+# Ignore all .exe files
+*.exe
+
+# Ignore all .lib files
+*.lib
+
+# Ignore all .exp files
+*.exp
+.vscode
