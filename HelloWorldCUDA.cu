@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cuda_runtime.h>
+#include <cuda/std/atomic>
 
 using namespace std;
 __global__ void helloFromGPU() {
@@ -13,6 +14,6 @@ int main() {
     // Wait for the GPU to finish
     cudaDeviceSynchronize();
 
-    std::cout << "Hello from CPU!" << endl;
+    printf("Hello from CPU!\n");
     return 0;
 }
