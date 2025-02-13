@@ -67,17 +67,7 @@ nvcc 01_hello_world.cu -o hello_world
 ./hello_world
 ```
 
----
 
-## ✨ Current Progress
-
-| **Program**               | **Description**                              | **Status** |
-|---------------------------|----------------------------------------------|------------|
-| `01_hello_world.cu`        | First CUDA program                           | ✅ Complete |
-| `02_matrix_multiplication.cu` | Matrix multiplication on GPU                | ✅ Complete |
-| `shared_memory_example.cu` | Optimized matrix multiplication using shared memory | 🚧 In Progress |
-
----
 
 ## 🔥 Learning Milestones
 - [x] **Understand CUDA architecture**
