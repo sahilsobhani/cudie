@@ -23,8 +23,8 @@ CUDA allows us to leverage the massive parallel processing power of GPUs to acce
 ```
 📦 cuda-learning-repo
  ┣ 📂 basics
- ┃ ┣ 📜 01_hello_world.cu        # First CUDA program (Hello, GPU!)
- ┃ ┣ 📜 02_matrix_multiplication.cu # Basic matrix multiplication on GPU
+ ┃ ┣ 📜 hello_world.cu        # First CUDA program (Hello, GPU!)
+ ┃ ┣ 📜 matrix_multiplication.cu # Basic matrix multiplication on GPU
  ┃ ┗ 📜 ...
  ┣ 📂 optimized
  ┃ ┣ 📜 shared_memory_example.cu # Using shared memory for performance
