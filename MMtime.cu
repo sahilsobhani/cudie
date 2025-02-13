@@ -3,7 +3,8 @@
 #include <cuda/std/atomic>
 
 
-#define N 16
+
+#define N 512
 
 __global__ void matrixMul(float *A, float *B, float *C, int n){
 
@@ -41,22 +42,28 @@ cudaMalloc((void **)&d_C, size);
 cudaMemcpy(d_A,h_A,size, cudaMemcpyHostToDevice);
 cudaMemcpy(d_B,h_B,size, cudaMemcpyHostToDevice);
 
+cudaEvent_t start, stop;
+cudaEventCreate(&start);
+cudaEventCreate(&stop);
+
 dim3 threadsPerBlock(16,16);
 dim3 blocksPerGrid((N+15)/16, (N+15)/16);
 
+cudaEventRecord(start);
 matrixMul <<<blocksPerGrid, threadsPerBlock>>>(d_A,d_B,d_C,N);
+cudaEventRecord(stop);
+
+cudaEventSynchronize(stop);
+
+float timeTaken =0;
+cudaEventElapsedTime(&timeTaken, start,stop);
+
+
 cudaMemcpy(h_C,d_C, size , cudaMemcpyDeviceToHost);
 
-printf("resulting matrix:\n");
+printf("the time taken to calculate this is: %fms\n", timeTaken);
 
-for(int i = 0;i<16;i++){
-    for (int j =0;j<16;j++){
-            printf("%f  ", h_C[i*N+j]);
-    }
 
-    printf("\n");
-
-}
 
 free(h_A);
 free(h_B);
